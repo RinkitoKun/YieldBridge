@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Money - YieldBridge</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="dashboard.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <h1 data-translate="remittance.title">Send Money</h1>
+        </div>
+    </header>
+
+    <main class="remittance-main">
+        <div class="container">
+            <section class="send-form">
+                <div class="balance-display">
+                    <h3 data-translate="remittance.available">Available Balance</h3>
+                    <p class="balance">RLUSD <span id="availableBalance">0.00</span></p>
+                </div>
+
+                <form id="sendForm">
+                    <div class="input-group">
+                        <label for="recipientAddress" data-translate="remittance.recipient">Recipient Address</label>
+                        <input type="text" id="recipientAddress" placeholder="rXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" required>
+                        <small data-translate="remittance.recipientHelp">Enter XRP Ledger wallet address</small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="sendAmount" data-translate="remittance.amount">Amount</label>
+                        <div class="amount-input">
+                            <span class="currency-symbol">RLUSD</span>
+                            <input type="number" id="sendAmount" step="0.01" min="0.01" placeholder="0.00" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="memo" data-translate="remittance.memo">Memo (Optional)</label>
+                        <input type="text" id="memo" placeholder="Payment for..." maxlength="50">
+                    </div>
+
+                    <div class="transaction-summary">
+                        <h4 data-translate="remittance.summary">Transaction Summary</h4>
+                        <div class="summary-row">
+                            <span data-translate="remittance.amount">Amount</span>
+                            <span id="summaryAmount">RLUSD 0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span data-translate="remittance.fee">Network Fee</span>
+                            <span id="summaryFee">RLUSD 0.000012</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span data-translate="remittance.total">Total</span>
+                            <span id="summaryTotal">RLUSD 0.00</span>
+                        </div>
+                    </div>
+
+                    <div class="remittance-benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-bolt"></i>
+                            <span data-translate="remittance.benefits.fast">Instant global transfer</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-coins"></i>
+                            <span data-translate="remittance.benefits.low">Ultra-low fees</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span data-translate="remittance.benefits.secure">Bank-grade security</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="send-btn" id="sendBtn">
+                        <i class="fas fa-paper-plane"></i>
+                        <span data-translate="remittance.button">Send RLUSD</span>
+                    </button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <h3 data-translate="remittance.confirm.title">Confirm Transaction</h3>
+            <div class="confirm-details" id="confirmDetails">
+                <!-- Dynamic content -->
+            </div>
+            <div class="modal-actions">
+                <button onclick="closeConfirmModal()" class="secondary-btn" data-translate="remittance.confirm.cancel">Cancel</button>
+                <button onclick="executeSend()" class="primary-btn" data-translate="remittance.confirm.send">Send Now</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="success-animation">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 data-translate="remittance.success.title">Transfer Successful!</h3>
+            <p data-translate="remittance.success.message">Your RLUSD has been sent successfully.</p>
+            <div class="transaction-hash" id="transactionHash">
+                <!-- Dynamic content -->
+            </div>
+            <button onclick="closeSuccessModal()" data-translate="remittance.success.done">Done</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/xrpl@2.7.0/build/xrpl-latest-min.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/xrpl-client.js"></script>
+    <script src="js/remittance.js"></script>
+</body>
+</html>

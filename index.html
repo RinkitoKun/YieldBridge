@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YieldBridge - Save. Earn. Empower.</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-bridge-circle-exclamation"></i>
+                <span>YieldBridge</span>
+            </div>
+            <div class="language-selector">
+                <select id="languageSelect">
+                    <option value="en">EN</option>
+                    <option value="es">ES</option>
+                    <option value="fr">FR</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="landing-main">
+        <section class="hero">
+            <div class="container">
+                <h1 data-translate="hero.title">Save. Earn. Empower.</h1>
+                <p data-translate="hero.subtitle">Join community savings circles, earn yield with RLUSD, and create impact in your community.</p>
+                <button class="cta-button" onclick="checkWalletAndRedirect()" data-translate="hero.cta">Get Started</button>
+            </div>
+        </section>
+
+        <section class="explainer">
+            <div class="container">
+                <h2 data-translate="explainer.title">How YieldBridge Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <h3 data-translate="explainer.step1.title">1. Connect Wallet</h3>
+                        <p data-translate="explainer.step1.desc">Connect your XRP Ledger wallet or create a new one</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 data-translate="explainer.step2.title">2. Join Savings Circle</h3>
+                        <p data-translate="explainer.step2.desc">Connect with community members in trusted savings groups</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 data-translate="explainer.step3.title">3. Earn Yield</h3>
+                        <p data-translate="explainer.step3.desc">Generate safe returns through automated DeFi strategies</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 data-translate="explainer.step4.title">4. Create Impact</h3>
+                        <p data-translate="explainer.step4.desc">Donate portion of yield to local community causes</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 YieldBridge. Built on XRP Ledger with RLUSD.</p>
+        </div>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        function checkWalletAndRedirect() {
+            const existingWallet = localStorage.getItem('yieldbridge_wallet');
+            if (existingWallet) {
+                window.location.href = 'dashboard.html';
+            } else {
+                window.location.href = 'wallet-setup.html';
+            }
+        }
+    </script>
+</body>
+</html>

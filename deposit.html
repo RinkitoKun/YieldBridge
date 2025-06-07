@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit - YieldBridge</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="dashboard.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <h1 data-translate="deposit.title">Deposit RLUSD</h1>
+        </div>
+    </header>
+
+    <main class="deposit-main">
+        <div class="container">
+            <section class="deposit-form">
+                <div class="balance-display">
+                    <h3 data-translate="deposit.currentBalance">Current Balance</h3>
+                    <p class="balance">RLUSD <span id="currentBalance">0.00</span></p>
+                </div>
+
+                <form id="depositForm">
+                    <div class="input-group">
+                        <label for="depositAmount" data-translate="deposit.amount">Amount to Deposit</label>
+                        <div class="amount-input">
+                            <span class="currency-symbol">RLUSD</span>
+                            <input type="number" id="depositAmount" step="0.01" min="1" placeholder="0.00" required>
+                        </div>
+                    </div>
+
+                    <div class="quick-amounts">
+                        <button type="button" class="quick-amount" onclick="setAmount(10)">$10</button>
+                        <button type="button" class="quick-amount" onclick="setAmount(25)">$25</button>
+                        <button type="button" class="quick-amount" onclick="setAmount(50)">$50</button>
+                        <button type="button" class="quick-amount" onclick="setAmount(100)">$100</button>
+                    </div>
+
+                    <div class="deposit-info">
+                        <div class="info-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span data-translate="deposit.info.secure">Secured by XRP Ledger</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <span data-translate="deposit.info.instant">Instant confirmation</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-coins"></i>
+                            <span data-translate="deposit.info.yield">Earns yield automatically</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="deposit-btn" id="depositBtn">
+                        <i class="fas fa-plus-circle"></i>
+                        <span data-translate="deposit.button">Deposit RLUSD</span>
+                    </button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="success-animation">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 data-translate="deposit.success.title">Deposit Successful!</h3>
+            <p data-translate="deposit.success.message">Your RLUSD has been deposited and will start earning yield immediately.</p>
+            <button onclick="closeModal()" data-translate="deposit.success.continue">Continue</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/xrpl@2.7.0/build/xrpl-latest-min.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/xrpl-client.js"></script>
+    <script src="js/deposit.js"></script>
+</body>
+</html>

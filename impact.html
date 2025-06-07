@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact Tracker - YieldBridge</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="dashboard.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <h1 data-translate="impact.title">Impact Tracker</h1>
+        </div>
+    </header>
+
+    <main class="impact-main">
+        <div class="container">
+            <section class="personal-impact">
+                <h2 data-translate="impact.personal.title">Your Impact</h2>
+                <div class="impact-stats">
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="impact-content">
+                            <h3 data-translate="impact.personal.earned">Total Yield Earned</h3>
+                            <p class="impact-value">$<span id="totalYield">0.00</span></p>
+                            <small data-translate="impact.personal.earnedSince">Since joining</small>
+                        </div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="impact-content">
+                            <h3 data-translate="impact.personal.donated">Total Donated</h3>
+                            <p class="impact-value">$<span id="totalDonated">0.00</span></p>
+                            <small data-translate="impact.personal.donatedPercent">20% of yield</small>
+                        </div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="impact-content">
+                            <h3 data-translate="impact.personal.helped">People Helped</h3>
+                            <p class="impact-value"><span id="peopleHelped">0</span></p>
+                            <small data-translate="impact.personal.helpedDesc">Through your donations</small>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="donation-settings">
+                <h2 data-translate="impact.settings.title">Donation Settings</h2>
+                <div class="settings-card">
+                    <div class="setting-item">
+                        <label for="donationPercentage" data-translate="impact.settings.percentage">Donation Percentage</label>
+                        <div class="percentage-slider">
+                            <input type="range" id="donationPercentage" min="0" max="50" value="20" step="5">
+                            <span id="percentageValue">20%</span>
+                        </div>
+                        <small data-translate="impact.settings.percentageHelp">Percentage of yield to donate</small>
+                    </div>
+                    <button class="save-settings-btn" onclick="saveSettings()" data-translate="impact.settings.save">Save Settings</button>
+                </div>
+            </section>
+
+            <section class="community-goals">
+                <h2 data-translate="impact.goals.title">Community Goals</h2>
+                <div class="goals-grid" id="goalsGrid">
+                    <!-- Dynamic content populated by JavaScript -->
+                </div>
+            </section>
+
+            <section class="impact-history">
+                <h2 data-translate="impact.history.title">Impact History</h2>
+                <div class="history-list" id="historyList">
+                    <!-- Dynamic content populated by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/impact.js"></script>
+</body>
+</html>

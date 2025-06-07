@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings Circles - YieldBridge</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="dashboard.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <h1 data-translate="circles.title">Savings Circles</h1>
+        </div>
+    </header>
+
+    <main class="circles-main">
+        <div class="container">
+            <section class="my-circle" id="myCircleSection" style="display: none;">
+                <h2 data-translate="circles.myCircle">My Circle</h2>
+                <div class="circle-card active-circle">
+                    <div class="circle-header">
+                        <h3 id="myCircleName">Community Builders</h3>
+                        <span class="circle-status" id="myCircleStatus">Active</span>
+                    </div>
+                    <div class="circle-stats">
+                        <div class="stat">
+                            <span class="label" data-translate="circles.members">Members</span>
+                            <span class="value" id="circleMembers">5/8</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label" data-translate="circles.contribution">Monthly</span>
+                            <span class="value" id="monthlyContribution">$50</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label" data-translate="circles.nextPayout">Next Payout</span>
+                            <span class="value" id="nextPayout">3 days</span>
+                        </div>
+                    </div>
+                    <div class="payout-rotation">
+                        <h4 data-translate="circles.payoutOrder">Payout Order</h4>
+                        <div class="member-list" id="memberList">
+                            <!-- Dynamic content -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="available-circles">
+                <h2 data-translate="circles.available">Available Circles</h2>
+                <div class="circle-filters">
+                    <select id="contributionFilter">
+                        <option value="all" data-translate="circles.filters.all">All Amounts</option>
+                        <option value="25">$25/month</option>
+                        <option value="50">$50/month</option>
+                        <option value="100">$100/month</option>
+                    </select>
+                    <select id="durationFilter">
+                        <option value="all" data-translate="circles.filters.duration">All Durations</option>
+                        <option value="6">6 months</option>
+                        <option value="12">12 months</option>
+                        <option value="24">24 months</option>
+                    </select>
+                </div>
+
+                <div class="circles-grid" id="circlesGrid">
+                    <!-- Dynamic content populated by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="joinModal" class="modal">
+        <div class="modal-content">
+            <h3 data-translate="circles.join.title">Join Circle</h3>
+            <div id="selectedCircleInfo">
+                <!-- Dynamic content -->
+            </div>
+            <div class="join-terms">
+                <p data-translate="circles.join.terms">By joining, you commit to monthly contributions and agree to the payout schedule.</p>
+            </div>
+            <div class="modal-actions">
+                <button onclick="closeJoinModal()" class="secondary-btn" data-translate="circles.join.cancel">Cancel</button>
+                <button onclick="confirmJoin()" class="primary-btn" data-translate="circles.join.confirm">Join Circle</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/circles.js"></script>
+</body>
+</html>
